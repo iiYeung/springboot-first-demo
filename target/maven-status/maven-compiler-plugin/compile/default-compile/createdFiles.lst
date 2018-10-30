@@ -1,0 +1,4 @@
+com\example\readinglist\entity\Book.class
+com\example\readinglist\reposity\ReadingListReposity.class
+com\example\readinglist\ReadingListApplication.class
+com\example\readinglist\controller\ReadingListController.class
