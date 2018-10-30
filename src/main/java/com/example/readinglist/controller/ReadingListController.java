@@ -2,7 +2,7 @@ package com.example.readinglist.controller;
 
 import com.example.readinglist.condition.JdbcTemplateCondition;
 import com.example.readinglist.entity.Book;
-import com.example.readinglist.reposity.ReadingListReposity;
+import com.example.readinglist.reposity.ReadingListRepository;
 import java.util.List;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Controller;
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @ConditionalOnBean(JdbcTemplateCondition.class)
 public class ReadingListController {
 
-    private ReadingListReposity reposity;
+    private ReadingListRepository reposity;
 
-    public ReadingListController(ReadingListReposity reposity) {
+    public ReadingListController(ReadingListRepository reposity) {
         this.reposity = reposity;
     }
 
