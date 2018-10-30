@@ -1,8 +1,10 @@
 package com.example.readinglist.controller;
 
+import com.example.readinglist.condition.JdbcTemplateCondition;
 import com.example.readinglist.entity.Book;
 import com.example.readinglist.reposity.ReadingListReposity;
 import java.util.List;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
+@ConditionalOnBean(JdbcTemplateCondition.class)
 public class ReadingListController {
 
     private ReadingListReposity reposity;
