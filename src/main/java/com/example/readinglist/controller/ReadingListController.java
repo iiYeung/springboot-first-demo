@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @ConditionalOnBean(JdbcTemplateCondition.class)
 public class ReadingListController {
 
-    private ReadingListRepository reposity;
+    private ReadingListRepository repository;
 
-    public ReadingListController(ReadingListRepository reposity) {
-        this.reposity = reposity;
+    public ReadingListController(ReadingListRepository repository) {
+        this.repository = repository;
     }
 
     @GetMapping("/{reader}")
     public String readersBooks(@PathVariable("reader") String reader, Model model) {
-        List<Book> list = reposity.findByReader(reader);
+        List<Book> list = repository.findByReader(reader);
         if (list != null) {
             model.addAttribute("books", list);
         }
@@ -35,7 +35,7 @@ public class ReadingListController {
     @PostMapping("/{reader}")
     public String addToReadingList(@PathVariable("reader") String reader, Book book) {
         book.setReader(reader);
-        reposity.save(book);
+        repository.save(book);
         return "redirect:/{reader}";
     }
 
